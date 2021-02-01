@@ -91,8 +91,7 @@ server {
         index index.html;
 
         location / {
-          try_files $uri $uri/ =404;
-
+         
           proxy_pass http://localhost:9944;
           proxy_set_header X-Real-IP $remote_addr;
           proxy_set_header Host $host;
@@ -140,7 +139,8 @@ produce a "Not private" warning which you can skip by going to "Advanced" and th
 
 Open [Polkadot-JS UI](https://polkadot.js.org/apps) and click the logo in the top left to switch the
 node. Activate the "Development" toggle and input your node's address - either the domain or the IP
-address. Remember to prefix with `wss://`.
+address. Remember to prefix with `wss://` and remove port postfix `:9944`. (you should have something 
+like: `wss://polkadot.js`)
 
 ![A sync-in-progress chain connected to Polkadot-JS UI](assets/maintain-wss-image.png)
 
